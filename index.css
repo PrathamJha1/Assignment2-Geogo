@@ -12,11 +12,14 @@ li{
     display: flex;
     flex-direction: column;
     row-gap: 1.5rem;
+    padding: 0;
 }
 .header_top{
     display: flex;
     flex-direction: row;
     width:100%;
+    align-items: center;
+    justify-content: center;
     column-gap: 2.5rem;
 }
 .top_mid{
@@ -28,16 +31,17 @@ li{
     text-align: left;
 }
 .header_top_heading{
-    width:70%;
+    width:50%;
 }
 .left_floater{
     display: flex;
     flex-direction: column;
-    row-gap: 17rem;
+    row-gap: 16rem;
     justify-content: center;
     align-items: flex-start;
     height:100%;
     width:10%;
+    position: sticky;
 }
 .body{
     display: flex;
@@ -110,4 +114,19 @@ li{
     align-items: center;
     justify-content: center;
     row-gap: 30px;
+}
+.icon{
+    color:grey;
+}
+.icon:hover{
+    color:red;
+}
+.top_icon{
+    color:red;
+}
+.midicon:hover,.bottom_icon:hover{
+    border-left:3px solid brown;
+}
+.midicon{
+    padding-left: 40px;
 }
