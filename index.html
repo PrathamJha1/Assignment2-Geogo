@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/75e360d1be.js" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
@@ -16,7 +17,7 @@
     <div class="container-fluid body">
 
         <div class="left_floater navbar-light bg-light">
-            <ul class="nav-item top_icon">
+            <ul class="nav-item top_icon mt-4">
                 <li><a href="#"><i class="fab fa-cloudversify fa-2x top_icon"></i></a></li>
             </ul>
             <ul class="nav-item mid_icon">
@@ -28,7 +29,7 @@
                 <li><a href="#"><i class="fas fa-sign-out-alt fa-2x icon" ></i></a></li>
             </ul>
         </div>
-        <div>
+        <div class="non-floater">
             <ul>
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light header">
@@ -41,6 +42,7 @@
                             <form class="form-inline my-2 my-lg-0">
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search"
                                     aria-label="Search">
+                                <button type="submit" style="border: none;"><i class="fas fa-search"></i></button>
                             </form>
                         </li>
                         <li class="nav-item top_mid">
@@ -65,128 +67,148 @@
             </ul>
             <ul class="content_structure">
 
-                <div class="left">
+                <div class="left" id='l'>
                     <div>
                         <li class="main_img">
                             <img src="assets/weather.jpg" height="150px" width="880px">
                         </li>
                     </div>
                     <div class="content_days col-lg-12">
-                        <ul class="content_heading">
+                        <ul class="content_heading col-lg-8">
                             <li class="head col-lg-9">
-                                <button>
+                                <button class="toggler text-lg-center text-muted ml-2" id="Curr_day" onclick="document.getElementById('w').style.display='none';document.getElementById('t').style.display='flex';
+                                document.getElementById('l').style.width='65%';
+                                document.getElementById('r').style.margin='0 0 0 85px'">
                                     Today
                                 </button>
-                                <button>
+                                <button class="toggler text-lg-center text-muted ml-2" id="Curr_week" onclick="document.getElementById('t').style.display='none';document.getElementById('w').style.display='flex';
+                                document.getElementById('l').style.width='70%';
+                                document.getElementById('r').style.margin='0'">
                                     Week
                                 </button>
                             </li>
-                            <li class="tail col-lg-9">
-                                <button>Celsius</button>
-                                <button>Fahrenheit</button>
+                            <li class="tail col-lg-9 ">
+                                <button class="rounded-circle switch">0C</button>
+                                <button class="rounded-circle switch">0F</button>
                             </li>
                         </ul>
-                        <ul class="week col-lg-12">
+                        <ul class="today col-lg-12" id="t" style="display: none;">
+                            <div class="card col-lg-12" style="border-radius: 10%;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Today</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
+                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
+                                    <a href="#" class="card-link">32</a>
+                                </div>
+                            </div>
+                        </ul>
+                        <ul class="week col-lg-12" id="w">
                             <div class="card day col-lg-3">
                                 <div class="card-body">
                                     <h5 class="card-title">Saturday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span></span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span></span></a>
-                                    <a href="#" class="card-link">32_icon</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
+                                    <a href="#" class="card-link">32</a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
-                                    <h5 class="card-title">Saturday</h5>
+                                    <h5 class="card-title">Sunday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span></span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span></span></a>
-                                    <a href="#" class="card-link">32_icon</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3 km/hr</span></p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
+                                    <a href="#" class="card-link">32 </a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
-                                    <h5 class="card-title">Saturday</h5>
+                                    <h5 class="card-title">Monday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span></span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span></span></a>
-                                    <a href="#" class="card-link">32_icon</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3 km/hr</span></p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
+                                    <a href="#" class="card-link">32</a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
-                                    <h5 class="card-title">Saturday</h5>
+                                    <h5 class="card-title">Tuesday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span></span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span></span></a>
-                                    <a href="#" class="card-link">32_icon</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
+                                    <a href="#" class="card-link">32</a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
-                                    <h5 class="card-title">Saturday</h5>
+                                    <h5 class="card-title">Wednesday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span></span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span></span></a>
-                                    <a href="#" class="card-link">32_icon</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
+                                    <a href="#" class="card-link">32</a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
-                                    <h5 class="card-title">Saturday</h5>
+                                    <h5 class="card-title">Thursday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span></span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span></span></a>
-                                    <a href="#" class="card-link">32_icon</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
+                                    <a href="#" class="card-link">32</a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
-                                    <h5 class="card-title">Saturday</h5>
+                                    <h5 class="card-title">Friday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span></span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span></span></a>
-                                    <a href="#" class="card-link">32_icon</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
+                                    <a href="#" class="card-link">32</a>
                                 </div>
                             </div>
                             
                     </ul>
                 </div>
-                <div class="todays_highlight col-lg-12">
-                    <div class="card day col-lg-3">
+                <div class="highlights col-lg-12">
+                    <div class="highlight_heading">
+                        <h5 class="text-muted text-capitalize">Today's Highlight</h5>
+                    </div>
+                    <div class="todays_highlight col-lg-12">
+                        <div class="card day col-lg-3">
                         <div class="card-body">
-                            <h5 class="card-title">Saturday</h5>
+                            <h5 class="card-title">Sunrise & Sunset</h5>
                             
                         </div>
                     </div>
                     <div class="card day col-lg-3">
                         <div class="card-body">
-                            <h5 class="card-title">Saturday</h5>
+                            <h5 class="card-title">Temperature Graph</h5>
                             
                         </div>
                     </div>
                     <div class="card day col-lg-3">
                         <div class="card-body">
-                            <h5 class="card-title">Saturday</h5>
+                            <h5 class="card-title">Air quality Index</h5>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="right">
+        </div>
+            <div class="right" id='r'>
                 <div class="calendar card">
-                    <img src="./assets/calendar.jfif" alt="Calendar" height="150px" width="400px">
+                    <img src="./assets/calendar.jfif" alt="Calendar" height="150px" width="300px">
                 </div>
                 <div class="newsletter card" style="text-align: center;">
-                    <div class="card">
+                    <div>
                         <h5 class="card-title"><i class="fas fa-paper-plane icon" ></i> Subscribe to our Newsletter</h5>
                     </div>
                 </div>
                 <div class="advertisement card">
-                    <img src="./assets/getapp.svg" alt="Install our App" height="150px" width="400px">
+                    <img src="./assets/getapp.svg" alt="Install our App" height="150px" width="300px">
                 </div>
                 <div class="city card">
-                    <img src="./assets//city.svg" height="150px" width="400px" alt="add city">
+                    <img src="./assets//city.svg" height="150px" width="300px" alt="add city">
                 </div>
             </div>
         </ul>
@@ -195,6 +217,6 @@
 
 
 
+<script src="./script.js"></script>
 </body>
-
 </html>
