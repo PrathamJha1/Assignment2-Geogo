@@ -146,10 +146,7 @@ li{
     background-color: white;
     border:1px solid rgb(78, 78, 78)
 }
-.switch:hover{
-    background-color: red;
-    color:whitesmoke
-}
+
 .newsletter{
     padding:2%;  
 }

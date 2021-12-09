@@ -40,9 +40,9 @@
                         </li>
                         <li class="Search_bar">
                             <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" id ="Search"
                                     aria-label="Search">
-                                <button type="submit" style="border: none;"><i class="fas fa-search"></i></button>
+                                <button type="submit" style="border: none;" id="Submit"><i class="fas fa-search"></i></button>
                             </form>
                         </li>
                         <li class="nav-item top_mid">
@@ -88,18 +88,20 @@
                                 </button>
                             </li>
                             <li class="tail col-lg-9 ">
-                                <button class="rounded-circle switch">0C</button>
-                                <button class="rounded-circle switch">0F</button>
+                                <button class="rounded-circle switch " value="C" style="background-color:#b71c1c " id="c" onclick="document.getElementById('c').style.backgroundColor='#b71c1c';
+                                document.getElementById('f').style.backgroundColor='white';">&#176;C</button>
+                                <button class="rounded-circle switch" value="F" id="f" onclick="document.getElementById('f').style.backgroundColor='#b71c1c';
+                                document.getElementById('c').style.backgroundColor='white';">&#176;F</button>
                             </li>
                         </ul>
                         <ul class="today col-lg-12" id="t" style="display: none;">
                             <div class="card col-lg-12" style="border-radius: 10%;">
                                 <div class="card-body">
-                                    <h5 class="card-title">Today</h5>
+                                    <h5 class="card-title">Today's Weather</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
-                                    <a href="#" class="card-link">32</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i>10.3km/hr</p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint">60%</i></a>
+                                    <a href="#" class="card-link">32&#176;<span class="Unit">C</span></a>
                                 </div>
                             </div>
                         </ul>
@@ -108,63 +110,63 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Saturday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
-                                    <a href="#" class="card-link">32</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i>10.3km/hr</p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint">60%</i></a>
+                                    <a href="#" class="card-link">32&#176;<span name="Unit">C</span></a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
                                     <h5 class="card-title">Sunday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3 km/hr</span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
-                                    <a href="#" class="card-link">32 </a>
+                                    <p class="card-text"><i class="fas fa-wind"></i>10.3 km/hr</p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint">60%</i></a>
+                                    <a href="#" class="card-link">32&#176;<span name="Unit">C</span> </a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
                                     <h5 class="card-title">Monday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3 km/hr</span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
-                                    <a href="#" class="card-link">32</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i>10.3 km/hr</p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint">60%</i></a>
+                                    <a href="#" class="card-link">32&#176;<span name="Unit">C</span></a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
                                     <h5 class="card-title">Tuesday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
-                                    <a href="#" class="card-link">32</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i>10.3km/hr</p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint">60%</i></a>
+                                    <a href="#" class="card-link">32&#176;<span name="Unit">C</span></a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
                                     <h5 class="card-title">Wednesday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
-                                    <a href="#" class="card-link">32</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i>10.3km/hr</p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint">60%</i></a>
+                                    <a href="#" class="card-link">32&#176;<span name="Unit">C</span></a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
                                     <h5 class="card-title">Thursday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
-                                    <a href="#" class="card-link">32</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i>10.3km/hr</p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint">60%</i></a>
+                                    <a href="#" class="card-link">32&#176;<span name="Unit">C</span></a>
                                 </div>
                             </div>
                             <div class="card day col-lg-3">
                                 <div class="card-body">
                                     <h5 class="card-title">Friday</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Partly Cloudy</h6>
-                                    <p class="card-text"><i class="fas fa-wind"></i><span>10.3km/hr</span></p>
-                                    <a href="#" class="card-link"><i class="fas fa-tint"></i><span>60%</span></a>
-                                    <a href="#" class="card-link">32</a>
+                                    <p class="card-text"><i class="fas fa-wind"></i>10.3km/hr</p>
+                                    <a href="#" class="card-link"><i class="fas fa-tint">60%</i></a>
+                                    <a href="#" class="card-link">32&#176;<span name="Unit"></span></a>
                                 </div>
                             </div>
                             
