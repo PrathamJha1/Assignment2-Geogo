@@ -51,7 +51,7 @@ document.getElementById('f').addEventListener('click',function(){
     let Location={
         apiKey:"6c65d5c02dc08e8e70fa959a377ba5bd",
         fetchLocation:function(x,u){
-            fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + x +"&appid="+ this.apiKey).then(response=>response.json()).then(data=>{
+            fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + x +"&appid="+ this.apiKey).then(response=>response.json()).then(data=>{
                 lat=data[0].lat;
                 lon=data[0].lon;
                 weather.fetchWeather(lat,lon,u);
@@ -64,6 +64,15 @@ document.getElementById('Curr_day').addEventListener('click',function(){
 document.getElementById('Curr_week').addEventListener('click',function(){
     Day="Week";
 });
+let pollution={
+    apiKey:"6c65d5c02dc08e8e70fa959a377ba5bd",
+    fetchAQI: function(lat,lon){
+        fetch("https://api.openweathermap.org/data/2.5/air_pollution?lat="+lat+"&lon="+lon+"&appid="+this.apiKey).then((response)=>response.json()).then((data)=>{
+            console.log(data);   
+        $('.aqi h6')[0].innerHTML= "Air Quality Index: "+data.list[0].main.aqi;
+        });
+    }
+}
 let weather={
     apiKey:"6c65d5c02dc08e8e70fa959a377ba5bd",
     fetchWeather: function(lat,lon,unit){
@@ -74,9 +83,7 @@ let weather={
         else{
             extra="&units=imperial";
         }
-        const URL="https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+extra+"&appid="+this.apiKey;
-        fetch(URL).then((response)=>response.json()).then((data)=>{
-            console.log(data);
+        fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+extra+"&appid="+this.apiKey).then((response)=>response.json()).then((data)=>{
            //Today Completed.
             $('#Today h6')[0].innerHTML=data.current.weather[0].main;
             $('#Today p .far')[0].innerHTML= data.current.visibility;
@@ -117,7 +124,7 @@ let weather={
            $('#Friday p .fa-wind')[0].innerHTML = unit==='C'?data.daily[6].wind_speed+"meter/sec":data.daily[6].wind_speed+"miles/hr";
            $('#Friday .fa-tint')[0].innerHTML = data.daily[6].humidity + "%";
            $('#Friday .temp')[0].innerHTML = +data.daily[6].temp.max+"&#176;"+ unit;
-           
+           pollution.fetchAQI(lat,lon);
         });
     }
 };
