@@ -68,7 +68,7 @@ let pollution={
     apiKey:"6c65d5c02dc08e8e70fa959a377ba5bd",
     fetchAQI: function(lat,lon){
         fetch("https://api.openweathermap.org/data/2.5/air_pollution?lat="+lat+"&lon="+lon+"&appid="+this.apiKey).then((response)=>response.json()).then((data)=>{
-            console.log(data);   
+            //console.log(data);   
         $('.aqi h6')[0].innerHTML= "Air Quality Index: "+data.list[0].main.aqi;
         });
     }
